@@ -5,14 +5,14 @@ public class Dijkstra {
 	static Scanner scan; // scan is a Scanner Object
 
 	public static void main(String[] args) {
-
-		int[] preD = new int[5];
+		int MAX = 6;
+		int[] preD = new int[MAX];
 		int min = 999, nextNode = 0; // min holds the minimum value, nextNode
 										// holds the value for the next node.
 		scan = new Scanner(System.in);
-		int[] distance = new int[5]; // the distance matrix
-		int[][] matrix = new int[5][5]; // the actual matrix
-		int[] visited = new int[5]; // the visited array
+		int[] distance = new int[MAX]; // the distance matrix
+		int[][] matrix = new int[MAX][MAX]; // the actual matrix
+		int[] visited = new int[MAX]; // the visited array
 
 		System.out.println("Enter the cost matrix");
 
@@ -41,11 +41,11 @@ public class Dijkstra {
 		distance[0] = 0; // set the distance from source to source to zero which
 							// is the starting point
 
-		for (int counter = 0; counter < 5; counter++) {
+		for (int counter = 0; counter < MAX; counter++) {
 
 			min = 999;
 
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < MAX; i++) {
 
 				if (min > distance[i] && visited[i] != 1) {
 
@@ -58,7 +58,7 @@ public class Dijkstra {
 
 			visited[nextNode] = 1;
 
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < MAX; i++) {
 
 				if (visited[i] != 1) {
 
@@ -75,7 +75,7 @@ public class Dijkstra {
 
 		}
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < MAX; i++) {
 
 			System.out.print("|" + distance[i]);
 
@@ -83,7 +83,7 @@ public class Dijkstra {
 		System.out.println("|");
 
 		int j;
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < MAX; i++) {
 
 			if (i != 0) {
 
